@@ -41,10 +41,4 @@ export class EmployeesComponent {
       phone: '+421903123123',
     },
   ];
-
-  selectedEmployee?: Employee;
-
-  showDetail(employee: Employee): void {
-    this.selectedEmployee = employee;
-  }
 }

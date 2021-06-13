@@ -1,0 +1,16 @@
+<span> {{ employee.name }} {{ employee.surname }} </span>
+<div class="button-container">
+  <button type="button" class="btn btn-primary" (click)="toggleDetail()">
+    Toggle details
+  </button>
+  <button type="button" class="btn btn-primary" (click)="toggleAddress()">
+    Toggle address
+  </button>
+</div>
+<div *ngIf="detailVisible">
+  <div>Phone: {{ employee.phone }}</div>
+  <div>Email: {{ employee.email }}</div>
+</div>
+<div *ngIf="addressVisible">
+  {{ getAddress() }}
+</div>
