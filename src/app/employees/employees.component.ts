@@ -1,11 +1,24 @@
+import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Employee } from '../model/employee.model';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
 })
 export class EmployeesComponent {
+  @ViewChild('employeeOfTheMonth')
+  employeeOfTheMonthListItem!: EmployeeListItemComponent;
+
+  @ViewChild('employeeOfTheWeek')
+  employeeOfTheWeekListItem!: EmployeeListItemComponent;
+
+  @ViewChildren('employee')
+  employeeListItems!: QueryList<EmployeeListItemComponent>;
+
+  @ViewChildren(EmployeeListItemComponent)
+  allEmployeeListItems!: QueryList<EmployeeListItemComponent>;
+
   employees: Employee[] = [
     {
       name: 'Michal',
@@ -41,4 +54,31 @@ export class EmployeesComponent {
       phone: '+421903123123',
     },
   ];
+
+  toggleEmployees(): void {
+    this.employeeListItems.forEach((item) => {
+      this.toggleEmployeeAddressAndDetail(item);
+    });
+  }
+
+  toggleAllItems(): void {
+    this.allEmployeeListItems.forEach((item) => {
+      this.toggleEmployeeAddressAndDetail(item);
+    });
+  }
+
+  toggleEmployeeOfTheMonth(): void {
+    this.toggleEmployeeAddressAndDetail(this.employeeOfTheMonthListItem);
+  }
+
+  toggleEmployeeOfTheWeek(): void {
+    this.toggleEmployeeAddressAndDetail(this.employeeOfTheWeekListItem);
+  }
+
+  private toggleEmployeeAddressAndDetail(
+    employeeListItemComponent: EmployeeListItemComponent
+  ): void {
+    employeeListItemComponent.toggleAddress();
+    employeeListItemComponent.toggleDetail();
+  }
 }
