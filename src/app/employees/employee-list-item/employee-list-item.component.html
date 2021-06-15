@@ -6,12 +6,14 @@
   <button type="button" class="btn btn-primary" (click)="toggleAddress()">
     Toggle address
   </button>
-  <button type="button" class="btn btn-primary" (click)="duplicateEmployee()">
-    Duplicate
-  </button>
-  <button type="button" class="btn btn-danger" (click)="removeEmployee()">
-    Remove
-  </button>
+  <ng-container *ngIf="actionsVisible">
+    <button type="button" class="btn btn-primary" (click)="duplicateEmployee()">
+      Duplicate
+    </button>
+    <button type="button" class="btn btn-danger" (click)="removeEmployee()">
+      Remove
+    </button>
+  </ng-container>
 </div>
 <div *ngIf="detailVisible">
   <div>Phone: {{ employee.phone }}</div>

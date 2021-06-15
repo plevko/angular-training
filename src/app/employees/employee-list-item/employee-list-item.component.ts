@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class EmployeeListItemComponent {
   @Input() employee!: Employee;
+  @Input() actionsVisible = true;
 
   @Output() duplicate = new EventEmitter<Employee>();
   @Output() remove = new EventEmitter();
