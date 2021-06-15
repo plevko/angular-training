@@ -19,10 +19,4 @@ export class EmployeeListItemComponent {
   toggleAddress(): void {
     this.addressVisible = !this.addressVisible;
   }
-
-  getAddress(): string {
-    return this.employee.address
-      ? `Street: ${this.employee.address.street} HouseNumber: ${this.employee.address.houseNumber} City: ${this.employee.address.city} Country: ${this.employee.address.country}`
-      : 'No address';
-  }
 }

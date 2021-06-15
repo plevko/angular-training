@@ -12,5 +12,5 @@
   <div>Email: {{ employee.email }}</div>
 </div>
 <div *ngIf="addressVisible">
-  {{ getAddress() }}
+  {{ employee.address | appAddress }}
 </div>
