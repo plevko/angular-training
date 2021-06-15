@@ -1,5 +1,5 @@
 import { Employee } from './../../model/employee.model';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-employee-list-item',
@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class EmployeeListItemComponent {
   @Input() employee!: Employee;
+
+  @Output() duplicate = new EventEmitter<Employee>();
+  @Output() remove = new EventEmitter();
 
   detailVisible = false;
   addressVisible = false;
@@ -18,5 +21,13 @@ export class EmployeeListItemComponent {
 
   toggleAddress(): void {
     this.addressVisible = !this.addressVisible;
+  }
+
+  duplicateEmployee(): void {
+    this.duplicate.emit(this.employee);
+  }
+
+  removeEmployee(): void {
+    this.remove.emit();
   }
 }

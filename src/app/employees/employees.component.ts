@@ -55,6 +55,14 @@ export class EmployeesComponent {
     },
   ];
 
+  onDuplicate(employee: Employee): void {
+    this.employees.push(employee);
+  }
+
+  onRemove(index: number): void {
+    this.employees.splice(index, 1);
+  }
+
   toggleEmployees(): void {
     this.employeeListItems.forEach((item) => {
       this.toggleEmployeeAddressAndDetail(item);

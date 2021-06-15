@@ -31,10 +31,12 @@
 </div>
 
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let employee of employees">
+  <li class="list-group-item" *ngFor="let employee of employees; let i = index">
     <app-employee-list-item
       #employee
       [employee]="employee"
+      (duplicate)="onDuplicate($event)"
+      (remove)="onRemove(i)"
     ></app-employee-list-item>
   </li>
 </ul>
