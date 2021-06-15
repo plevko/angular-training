@@ -1,4 +1,9 @@
 <div class="container">
   <app-hello></app-hello>
+  <app-hello name="Michal"></app-hello>
+  <app-hello [name]="name"></app-hello>
+  <app-hello [name]="'Peter'"></app-hello>
+  <app-hello [name]="getName()"></app-hello>
+
   <app-employees></app-employees>
 </div>
