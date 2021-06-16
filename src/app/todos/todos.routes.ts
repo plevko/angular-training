@@ -1,3 +1,4 @@
+import { TodosGuard } from './todos.guard';
 import { TodosComponent } from './todos.component';
 import { Routes } from '@angular/router';
 import { TodosResolver } from './todos.resolver';
@@ -9,5 +10,6 @@ export const todosRoutes: Routes = [
     resolve: {
       todos: TodosResolver,
     },
+    canActivate: [TodosGuard],
   },
 ];
