@@ -1,3 +1,4 @@
+import { LoginService } from './shared/login.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -22,7 +23,7 @@ import { EmojiAdderDirective } from './shared/directives/emoji-adder.directive';
     MenuComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
-  providers: [AlertService],
+  providers: [AlertService, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

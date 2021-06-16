@@ -1,3 +1,4 @@
+import { LoginService } from './../shared/login.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,7 +7,10 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly loginService: LoginService
+  ) {}
 
   goToEmployees(): void {
     this.router.navigate(['employees']);
@@ -19,5 +23,13 @@ export class MenuComponent {
       paths: 'exact',
       queryParams: 'exact',
     });
+  }
+
+  isUserLoggedIn(): boolean {
+   return this.loginService.userLoggedIn; 
+  }
+
+  login(): void {
+    this.loginService.userLoggedIn = true;
   }
 }
