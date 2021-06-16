@@ -6,4 +6,5 @@ import { Component, Input } from '@angular/core';
 })
 export class HelloComponent {
   @Input() name = 'Angular';
+  @Input() emoji = '😀';
 }

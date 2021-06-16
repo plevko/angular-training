@@ -1,13 +1,19 @@
 import { AlertService } from './../alert/alert.service';
 import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
-import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { Employee } from '../model/employee.model';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
 })
-export class EmployeesComponent {
+export class EmployeesComponent implements AfterViewInit {
   @ViewChild('employeeOfTheMonth')
   employeeOfTheMonthListItem!: EmployeeListItemComponent;
 
@@ -57,6 +63,10 @@ export class EmployeesComponent {
   ];
 
   constructor(private readonly alertService: AlertService) {}
+
+  ngAfterViewInit(): void {
+    // this.toggleAllItems();
+  }
 
   onDuplicate(employee: Employee): void {
     this.employees.push(employee);

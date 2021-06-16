@@ -8,6 +8,7 @@ import { EmployeeListItemComponent } from './employees/employee-list-item/employ
 import { EmployeesComponent } from './employees/employees.component';
 import { HelloComponent } from './hello/hello.component';
 import { AddressPipe } from './shared/pipes/address.pipe';
+import { EmojiAdderDirective } from './shared/directives/emoji-adder.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddressPipe } from './shared/pipes/address.pipe';
     AddressPipe,
     AlertComponent,
     AlertListComponent,
+    EmojiAdderDirective
   ],
   imports: [BrowserModule],
   providers: [AlertService],
