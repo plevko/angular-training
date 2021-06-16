@@ -1,0 +1,55 @@
+<h1>List of employees</h1>
+<div class="button-group">
+  <button
+    type="button"
+    class="btn btn-outline-primary me-2"
+    (click)="toggleAllItems()"
+  >
+    Togle all
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-primary me-2"
+    (click)="toggleEmployees()"
+  >
+    Toggle employees
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-primary me-2"
+    (click)="toggleEmployeeOfTheMonth()"
+  >
+    Togle employee of the month
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    (click)="toggleEmployeeOfTheWeek()"
+  >
+    Togle employee of the week
+  </button>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let employee of employees; let i = index">
+    <app-employee-list-item
+      #employee
+      [employee]="employee"
+      (duplicate)="onDuplicate($event)"
+      (remove)="onRemove(i)"
+    ></app-employee-list-item>
+  </li>
+</ul>
+
+<h2>Employee of the week</h2>
+<app-employee-list-item
+  #employeeOfTheWeek
+  [employee]="employees[1]"
+  [actionsVisible]="false"
+></app-employee-list-item>
+<h2>Employee of the month</h2>
+<app-employee-list-item
+  #employeeOfTheMonth
+  [employee]="employees[0]"
+  [actionsVisible]="false"
+></app-employee-list-item>

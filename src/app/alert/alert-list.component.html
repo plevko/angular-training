@@ -1,0 +1,5 @@
+<app-alert
+  *ngFor="let alert of alerts"
+  [alert]="alert"
+  (remove)="removeAlert(alert)"
+></app-alert>

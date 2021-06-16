@@ -1,0 +1,4 @@
+{
+  "angular.log": "verbose",
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

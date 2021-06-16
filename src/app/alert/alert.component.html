@@ -1,0 +1,10 @@
+<div class="alert alert-dismissible" [ngClass]="getAlertClass()" role="alert">
+  {{ alert.message }}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    (click)="removeMe()"
+  ></button>
+</div>
