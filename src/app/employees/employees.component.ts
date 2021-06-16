@@ -2,6 +2,7 @@ import { AlertService } from './../alert/alert.service';
 import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   QueryList,
   ViewChild,
@@ -62,10 +63,14 @@ export class EmployeesComponent implements AfterViewInit {
     },
   ];
 
-  constructor(private readonly alertService: AlertService) {}
+  constructor(
+    private readonly alertService: AlertService,
+    private readonly cdr: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit(): void {
-    // this.toggleAllItems();
+    this.toggleAllItems();
+    this.cdr.detectChanges();
   }
 
   onDuplicate(employee: Employee): void {
