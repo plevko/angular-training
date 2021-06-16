@@ -1,3 +1,6 @@
+import { AlertService } from './alert/alert.service';
+import { AlertListComponent } from './alert/alert-list.component';
+import { AlertComponent } from './alert/alert.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -12,10 +15,12 @@ import { AddressPipe } from './shared/pipes/address.pipe';
     HelloComponent,
     EmployeesComponent,
     EmployeeListItemComponent,
-    AddressPipe
+    AddressPipe,
+    AlertComponent,
+    AlertListComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [AlertService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

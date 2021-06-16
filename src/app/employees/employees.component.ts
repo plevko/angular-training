@@ -1,3 +1,4 @@
+import { AlertService } from './../alert/alert.service';
 import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
 import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Employee } from '../model/employee.model';
@@ -55,12 +56,18 @@ export class EmployeesComponent {
     },
   ];
 
+  constructor(private readonly alertService: AlertService) {}
+
   onDuplicate(employee: Employee): void {
     this.employees.push(employee);
+
+    this.alertService.addSuccessAlert('Employee duplicated');
   }
 
   onRemove(index: number): void {
     this.employees.splice(index, 1);
+
+    this.alertService.addDangerAlert('Employee removed');
   }
 
   toggleEmployees(): void {
