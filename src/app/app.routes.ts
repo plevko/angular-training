@@ -11,4 +11,9 @@ export const appRoutes: Routes = [
     path: 'hellos',
     component: HelloListComponent,
   },
+  {
+    path: 'todos',
+    loadChildren: () =>
+      import('./todos/todos.module').then((m) => m.TodosModule),
+  },
 ];
