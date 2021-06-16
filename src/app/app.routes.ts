@@ -1,11 +1,11 @@
-import { HelloListComponent } from './hello/hello-list.component';
 import { Routes } from '@angular/router';
-import { EmployeesComponent } from './employees/employees.component';
+import { HelloListComponent } from './hello/hello-list.component';
 
 export const appRoutes: Routes = [
   {
     path: 'employees',
-    component: EmployeesComponent,
+    loadChildren: () =>
+      import('./employees/employees.module').then((m) => m.EmployeesModule),
   },
   {
     path: 'hellos',
