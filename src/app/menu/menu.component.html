@@ -12,6 +12,14 @@
         </li>
         <li class="nav-item">
           <a
+            class="nav-link"
+            routerLink="/contact-form"
+            routerLinkActive="bg-primary text-white"
+            >Contact form</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
             class="nav-link pe-auto"
             [ngClass]="{ 'bg-primary text-white': isRouteActive() }"
             (click)="goToEmployees()"
