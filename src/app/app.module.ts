@@ -52,7 +52,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     AlertService,
     LoginService,
-    { provide: LOCALE_ID, useValue: 'sk-SK' },
+    { provide: LOCALE_ID, useValue: 'sk' },
   ],
   bootstrap: [AppComponent],
 })
