@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
+  FormGroupDirective,
   Validators,
 } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
@@ -15,7 +16,18 @@ import { CommonValidators } from '../shared/validators/common-validators';
 export class ContactFormComponent implements OnInit {
   countries = ['Slovakia', 'Czechia', 'Poland'];
 
+  filledForm = {
+    name: 'Michal',
+    surname: 'Test',
+    address: {
+      street: 'Ulica',
+      country: 'Slovakia',
+    },
+  };
+
   contactForm!: FormGroup;
+
+  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -68,5 +80,14 @@ export class ContactFormComponent implements OnInit {
     }
 
     return 'Invalid field';
+  }
+
+  fillForm(): void {
+    this.contactForm.patchValue(this.filledForm);
+  }
+
+  resetForm(): void {
+    this.contactForm.reset();
+    this.formDirective.reset();
   }
 }

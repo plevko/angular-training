@@ -1,5 +1,9 @@
 <h2>Capco contact form</h2>
-<form [formGroup]="contactForm" (ngSubmit)="submit()">
+<button class="btn btn-primary" (click)="fillForm()">Fill form</button>
+<button class="btn btn-primary" (click)="resetForm()">Reset</button>
+
+
+<form [formGroup]="contactForm" (ngSubmit)="submit()" #form>
   <div class="mb-3">
     <mat-form-field>
       <mat-label>Name</mat-label>
