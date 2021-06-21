@@ -4,5 +4,13 @@
     "contactForm": "Kontaktny formular",
     "employees": "Zamestnanci",
     "todos": "TODOs"
+  },
+  "contactForm": {
+    "fillFormButton": "Predvyplniť formulár"
+  },
+  "country": {
+    "Slovakia": "Slovensko",
+    "Czechia": "Česko",
+    "Poland": "Poľsko"
   }
 }

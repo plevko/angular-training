@@ -5,5 +5,13 @@
     "contactForm": "Contact Form",
     "employees": "Employees",
     "todos": "TODOs"
+  },
+  "contactForm": {
+    "fillFormButton": "Fill form"
+  },
+  "country": {
+    "Slovakia": "Slovakia",
+    "Czechia": "Czechia",
+    "Poland": "Poland"
   }
 }

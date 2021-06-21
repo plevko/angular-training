@@ -7,6 +7,7 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { AlertService } from '../alert/alert.service';
 import { CommonValidators } from '../shared/validators/common-validators';
 
@@ -27,11 +28,12 @@ export class ContactFormComponent implements OnInit {
 
   contactForm!: FormGroup;
 
-  @ViewChild(FormGroupDirective) formDirective!: FormGroupDirective;
+  @ViewChild('form') formDirective!: FormGroupDirective;
 
   constructor(
     private readonly fb: FormBuilder,
-    private readonly alertService: AlertService
+    private readonly alertService: AlertService,
+    private readonly translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -88,6 +90,11 @@ export class ContactFormComponent implements OnInit {
 
   resetForm(): void {
     this.contactForm.reset();
-    this.formDirective.reset();
+    console.log(this.formDirective);
+    this.formDirective.resetForm();
+  }
+
+  getCountryTranslation(country: string): string {
+    return this.translateService.instant(`country.${country}`);
   }
 }

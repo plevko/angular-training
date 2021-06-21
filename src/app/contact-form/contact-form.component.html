@@ -1,9 +1,9 @@
 <h2>Capco contact form</h2>
-<button class="btn btn-primary" (click)="fillForm()">Fill form</button>
+<button class="btn btn-primary" (click)="fillForm()">{{ 'contactForm.fillFormButton' | translate}}</button>
 <button class="btn btn-primary" (click)="resetForm()">Reset</button>
 
 
-<form [formGroup]="contactForm" (ngSubmit)="submit()" #form>
+<form [formGroup]="contactForm" (ngSubmit)="submit()" #form="ngForm">
   <div class="mb-3">
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -65,7 +65,7 @@
         <mat-label>Country</mat-label>
         <mat-select formControlName="country">
           <mat-option *ngFor="let country of countries" [value]="country">
-            {{ country }}
+            {{ getCountryTranslation(country) }}
           </mat-option>
         </mat-select>
       </mat-form-field>
