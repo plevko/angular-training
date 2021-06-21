@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AlertService } from '../alert/alert.service';
 
 @Component({
   templateUrl: './contact-form.component.html',
@@ -9,7 +10,10 @@ export class ContactFormComponent implements OnInit {
 
   contactForm!: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -25,5 +29,10 @@ export class ContactFormComponent implements OnInit {
       }),
       agreement: undefined,
     });
+  }
+
+  submit(): void {
+    this.alertService.addInfoAlert('Form Submitted');
+    console.log(this.contactForm.value);
   }
 }
