@@ -36,6 +36,14 @@ export class ContactFormComponent implements OnInit {
       }),
       agreement: [undefined, Validators.requiredTrue],
     });
+
+    this.contactForm.valueChanges.subscribe((formValue) => {
+      console.log(formValue);
+    });
+
+    this.contactForm.get('surname')?.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
 
   submit(): void {
@@ -55,8 +63,8 @@ export class ContactFormComponent implements OnInit {
     if (formControl?.hasError('requiredTrue')) {
       return 'Must be true';
     }
-    if (formControl?.hasError('capcoEmail')){
-      return 'Email must end with @capco.sk'
+    if (formControl?.hasError('capcoEmail')) {
+      return 'Email must end with @capco.sk';
     }
 
     return 'Invalid field';
