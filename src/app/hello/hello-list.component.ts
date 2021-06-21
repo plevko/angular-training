@@ -7,6 +7,9 @@ export class HelloListComponent {
   name = 'Main name';
   date = new Date();
 
+  testNumbers = [0, 1, 4];
+  testSelectOptions = ['SK', 'EN', 'HU'];
+
   getName(): string {
     return 'Miroslav';
   }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
@@ -9,13 +9,43 @@
           <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8838079211524558015" datatype="html">
-        <source>Must be true</source>
+      <trans-unit id="7838507499088844742" datatype="html">
+        <source>
+          Refreshed
+          <x id="ICU" equiv-text="{n, plural, =0 {just now} =1 {one minute ago} other {{{n}} minutes ago}}" />
+        </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/contact-form/contact-form.component.ts</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="sourcefile">src/app/hello/hello-list.component.html</context>
+          <context context-type="linenumber">5,6</context>
         </context-group>
-        <note priority="1" from="description">validation error requiredTrue</note>
+      </trans-unit>
+      <trans-unit id="2002272803511843863" datatype="html">
+        <source>
+          {VAR_PLURAL, plural, =0 {just now} =1 {one minute ago} other {
+          <x id="INTERPOLATION" />
+          minutes ago}}
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hello/hello-list.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4926073683853022026" datatype="html">
+        <source>
+          Language is:
+          <x id="ICU" equiv-text="{option, select, SK {Slovak} EN {English} other {Other}}" />
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hello/hello-list.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2326028363684838105" datatype="html">
+        <source>{VAR_SELECT, select, SK {Slovak} EN {English} other {Other}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hello/hello-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1908285951500318953" datatype="html">
         <source> Login </source>
