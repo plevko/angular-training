@@ -108,6 +108,37 @@
           }
         }
       }
+    },
+    "capco-shared": {
+      "projectType": "library",
+      "root": "projects/capco-shared",
+      "sourceRoot": "projects/capco-shared/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/capco-shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/capco-shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/capco-shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/capco-shared/src/test.ts",
+            "tsConfig": "projects/capco-shared/tsconfig.spec.json",
+            "karmaConfig": "projects/capco-shared/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular"

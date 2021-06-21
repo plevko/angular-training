@@ -10,8 +10,8 @@ import { appRoutes } from './app.routes';
 import { HelloListComponent } from './hello/hello-list.component';
 import { HelloComponent } from './hello/hello.component';
 import { MenuComponent } from './menu/menu.component';
-import { EmojiAdderDirective } from './shared/directives/emoji-adder.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmojiAdderModule } from 'capco-shared';
 
 @NgModule({
   declarations: [
@@ -20,10 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HelloListComponent,
     AlertComponent,
     AlertListComponent,
-    EmojiAdderDirective,
     MenuComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), BrowserAnimationsModule],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), BrowserAnimationsModule, EmojiAdderModule],
   providers: [AlertService, LoginService],
   bootstrap: [AppComponent],
 })

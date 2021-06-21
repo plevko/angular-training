@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appEmojiAdder]',
+  selector: '[capcoEmojiAdder]',
 })
 export class EmojiAdderDirective implements AfterViewInit {
   @Input('emoji') emoji!: string;
