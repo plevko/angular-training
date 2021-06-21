@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
+import { CommonValidators } from '../shared/validators/common-validators';
 
 @Component({
   templateUrl: './contact-form.component.html',
@@ -25,7 +26,7 @@ export class ContactFormComponent implements OnInit {
     this.contactForm = this.fb.group({
       name: ['Michal', Validators.required],
       surname: [undefined, Validators.required],
-      email: ['@capco.sk', Validators.email],
+      email: ['@capco.sk', CommonValidators.capcoEmail()],
       message: [undefined, Validators.minLength(10)],
       address: this.fb.group({
         city: undefined,
@@ -52,7 +53,10 @@ export class ContactFormComponent implements OnInit {
     }
 
     if (formControl?.hasError('requiredTrue')) {
-      return 'Muset be true';
+      return 'Must be true';
+    }
+    if (formControl?.hasError('capcoEmail')){
+      return 'Email must end with @capco.sk'
     }
 
     return 'Invalid field';
