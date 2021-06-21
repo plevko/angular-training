@@ -1,0 +1,85 @@
+<h2>Capco contact form</h2>
+<button class="btn btn-primary" (click)="fillForm()">Fill form</button>
+<button class="btn btn-primary" (click)="resetForm()">Reset</button>
+
+
+<form [formGroup]="contactForm" (ngSubmit)="submit()" #form>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Ex. Michal" />
+      <mat-error *ngIf="contactForm.get('name')?.invalid">{{
+        getErrorMessage(contactForm.get("name"))
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Surname</mat-label>
+      <input formControlName="surname" matInput />
+      <mat-error *ngIf="contactForm.get('surname')?.invalid">{{
+        getErrorMessage(contactForm.get("surname"))
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput />
+      <mat-error *ngIf="contactForm.get('email')?.invalid">{{
+        getErrorMessage(contactForm.get("email"))
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea
+        matInput
+        placeholder="Ex. It makes me feel..."
+        formControlName="message"
+        [cdkTextareaAutosize]="true"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <h3>Address</h3>
+  <ng-container formGroupName="address">
+    <div class="mb-3">
+      <mat-form-field class="me-3">
+        <mat-label>Street</mat-label>
+        <input matInput formControlName="street" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>House number</mat-label>
+        <input matInput formControlName="houseNumber" />
+      </mat-form-field>
+    </div>
+    <div class="mb-3">
+      <mat-form-field class="me-3">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </ng-container>
+
+  <div class="mb-3">
+    <mat-checkbox formControlName="agreement"
+      >I agree with conditions...</mat-checkbox
+    >
+    <mat-error *ngIf="contactForm.get('agreement')?.touched && contactForm.get('agreement')?.invalid">{{
+      getErrorMessage(contactForm.get("agreement"))
+    }}</mat-error>
+  </div>
+
+  <button class="btn btn-primary">Send</button>
+</form>

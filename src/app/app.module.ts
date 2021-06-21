@@ -11,6 +11,7 @@ import { HelloListComponent } from './hello/hello-list.component';
 import { HelloComponent } from './hello/hello.component';
 import { MenuComponent } from './menu/menu.component';
 import { EmojiAdderDirective } from './shared/directives/emoji-adder.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { EmojiAdderDirective } from './shared/directives/emoji-adder.directive';
     EmojiAdderDirective,
     MenuComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), BrowserAnimationsModule],
   providers: [AlertService, LoginService],
   bootstrap: [AppComponent],
 })

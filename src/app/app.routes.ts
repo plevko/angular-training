@@ -16,4 +16,11 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('./todos/todos.module').then((m) => m.TodosModule),
   },
+  {
+    path: 'contact-form',
+    loadChildren: () =>
+      import('./contact-form/contact-form.module').then(
+        (m) => m.ContactFormModule
+      ),
+  },
 ];
