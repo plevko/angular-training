@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
 
 @Component({
@@ -17,22 +17,26 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
-      name: 'Michal',
-      surname: undefined,
-      email: '@capco.sk',
-      message: undefined,
+      name: ['Michal', Validators.required],
+      surname: [undefined, Validators.required],
+      email: ['@capco.sk', Validators.email],
+      message: [undefined, Validators.minLength(10)],
       address: this.fb.group({
         city: undefined,
         street: undefined,
         houseNumber: undefined,
         country: undefined,
       }),
-      agreement: undefined,
+      agreement: [undefined, Validators.requiredTrue],
     });
   }
 
   submit(): void {
-    this.alertService.addInfoAlert('Form Submitted');
-    console.log(this.contactForm.value);
+    if(this.contactForm.valid){
+      this.alertService.addSuccessAlert('Valid');
+    } else {
+      this.alertService.addDangerAlert('Invalid');
+
+    }
   }
 }
