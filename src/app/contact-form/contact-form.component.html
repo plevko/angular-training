@@ -4,18 +4,27 @@
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" placeholder="Ex. Michal" />
+      <mat-error *ngIf="contactForm.get('name')?.invalid">{{
+        getErrorMessage(contactForm.get("name"))
+      }}</mat-error>
     </mat-form-field>
   </div>
   <div class="mb-3">
     <mat-form-field>
       <mat-label>Surname</mat-label>
       <input formControlName="surname" matInput />
+      <mat-error *ngIf="contactForm.get('surname')?.invalid">{{
+        getErrorMessage(contactForm.get("surname"))
+      }}</mat-error>
     </mat-form-field>
   </div>
   <div class="mb-3">
     <mat-form-field>
       <mat-label>Email</mat-label>
       <input formControlName="email" matInput />
+      <mat-error *ngIf="contactForm.get('email')?.invalid">{{
+        getErrorMessage(contactForm.get("email"))
+      }}</mat-error>
     </mat-form-field>
   </div>
   <div class="mb-3">
@@ -63,6 +72,9 @@
     <mat-checkbox formControlName="agreement"
       >I agree with conditions...</mat-checkbox
     >
+    <mat-error *ngIf="contactForm.get('agreement')?.touched && contactForm.get('agreement')?.invalid">{{
+      getErrorMessage(contactForm.get("agreement"))
+    }}</mat-error>
   </div>
 
   <button class="btn btn-primary">Send</button>

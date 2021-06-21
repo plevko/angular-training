@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
 
 @Component({
@@ -32,11 +38,23 @@ export class ContactFormComponent implements OnInit {
   }
 
   submit(): void {
-    if(this.contactForm.valid){
+    this.contactForm.markAllAsTouched();
+    if (this.contactForm.valid) {
       this.alertService.addSuccessAlert('Valid');
     } else {
       this.alertService.addDangerAlert('Invalid');
-
     }
+  }
+
+  getErrorMessage(formControl: AbstractControl | null): string {
+    if (formControl?.hasError('required')) {
+      return 'This field is required';
+    }
+
+    if (formControl?.hasError('requiredTrue')) {
+      return 'Muset be true';
+    }
+
+    return 'Invalid field';
   }
 }
