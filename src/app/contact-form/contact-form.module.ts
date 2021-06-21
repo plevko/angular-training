@@ -6,6 +6,7 @@ import { contactFormRoutes } from './contact-form.routes';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     RouterModule.forChild(contactFormRoutes),
     MatInputModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
 })
 export class ContactFormModule {}
