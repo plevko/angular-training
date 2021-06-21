@@ -71,11 +71,7 @@ export class ContactFormComponent implements OnInit {
 
   getErrorMessage(formControl: AbstractControl | null): string {
     if (formControl?.hasError('required')) {
-      return 'This field is required';
-    }
-
-    if (formControl?.hasError('requiredTrue')) {
-      return 'Must be true';
+      return $localize`This field is required`;
     }
     if (formControl?.hasError('capcoEmail')) {
       return 'Email must end with @capco.sk';
@@ -90,7 +86,6 @@ export class ContactFormComponent implements OnInit {
 
   resetForm(): void {
     this.contactForm.reset();
-    console.log(this.formDirective);
     this.formDirective.resetForm();
   }
 
