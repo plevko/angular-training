@@ -1,6 +1,7 @@
 import { LoginService } from './../shared/login.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class MenuComponent {
   constructor(
     private readonly router: Router,
-    private readonly loginService: LoginService
+    private readonly loginService: LoginService,
+    private readonly translateService: TranslateService
   ) {}
 
   goToEmployees(): void {
@@ -31,5 +33,13 @@ export class MenuComponent {
 
   login(): void {
     this.loginService.userLoggedIn = true;
+  }
+
+  changeToSk(): void {
+    this.translateService.use('sk');
+    
+  }
+  changeToEn(): void {
+    this.translateService.use('en-US');
   }
 }

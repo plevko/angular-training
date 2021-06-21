@@ -1,3 +1,13 @@
+<div>Current locale is {{ locale }}</div>
+<div class="mb-3">Today is: {{ date | date }}</div>
+
+<div i18n *ngFor="let n of testNumbers">
+  Refreshed {n, plural, =0 {just now} =1 {one minute ago} other {{{n}} minutes ago}}
+</div>
+<div i18n *ngFor="let option of testSelectOptions">
+  Language is: {option, select, SK {Slovak} EN {English} other {Other}}
+</div>
+
 <app-hello></app-hello>
 <app-hello name="Michal" emoji="🥳"></app-hello>
 <app-hello [name]="name"></app-hello>

@@ -7,7 +7,7 @@
             class="nav-link"
             routerLink="/hellos"
             routerLinkActive="bg-primary text-white"
-            >Hellos</a
+            >{{ "menu.hellos" | translate }}</a
           >
         </li>
         <li class="nav-item">
@@ -15,7 +15,7 @@
             class="nav-link"
             routerLink="/contact-form"
             routerLinkActive="bg-primary text-white"
-            >Contact form</a
+            >{{ "menu.contactForm" | translate }}</a
           >
         </li>
         <li class="nav-item">
@@ -23,7 +23,7 @@
             class="nav-link pe-auto"
             [ngClass]="{ 'bg-primary text-white': isRouteActive() }"
             (click)="goToEmployees()"
-            >Employees</a
+            >{{ "menu.employees" | translate }}</a
           >
         </li>
         <li class="nav-item">
@@ -31,7 +31,7 @@
             class="nav-link pe-auto"
             routerLink="/todos"
             routerLinkActive="bg-primary text-white"
-            >Todos</a
+            >{{ "menu.todos" | translate }}</a
           >
         </li>
         <li class="nav-item">
@@ -40,8 +40,29 @@
             [disabled]="isUserLoggedIn()"
             class="btn btn-secondary"
             (click)="login()"
+            i18n
           >
             Login
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="changeToSk()"
+            i18n
+          >
+            SK
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="changeToEn()"
+            i18n
+          >
+            EN
           </button>
         </li>
       </ul>

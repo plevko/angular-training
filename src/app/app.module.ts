@@ -1,5 +1,5 @@
 import { LoginService } from './shared/login.service';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AlertListComponent } from './alert/alert-list.component';
@@ -13,6 +13,18 @@ import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmojiAdderModule } from 'capco-shared';
 
+import localeSk from '@angular/common/locales/sk';
+import { registerLocaleData } from '@angular/common';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+registerLocaleData(localeSk);
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,10 +32,28 @@ import { EmojiAdderModule } from 'capco-shared';
     HelloListComponent,
     AlertComponent,
     AlertListComponent,
-    MenuComponent,
+    MenuComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), BrowserAnimationsModule, EmojiAdderModule],
-  providers: [AlertService, LoginService],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    EmojiAdderModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'sk',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+  })
+  ],
+  providers: [
+    AlertService,
+    LoginService,
+    { provide: LOCALE_ID, useValue: 'sk' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

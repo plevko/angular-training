@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="sk">
+    <body>
+      <trans-unit id="2501969335659826225" datatype="html">
+        <source>This field is required</source>
+        <target state="translated">Pole je povinné</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8838079211524558015" datatype="html">
+        <source>Must be true</source>
+        <target state="translated">Musí byť true</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/contact-form/contact-form.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description">validation error requiredTrue</note>
+      </trans-unit>
+      <trans-unit id="1908285951500318953" datatype="html">
+        <source> Login </source>
+        <target state="translated">Prihlásiť sa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu/menu.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6203862639778539422" datatype="html">
+        <source> SK </source>
+        <target state="translated">Slovenčina</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu/menu.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8856577526350281425" datatype="html">
+        <source> EN </source>
+        <target state="translated">Angličtina</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu/menu.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
