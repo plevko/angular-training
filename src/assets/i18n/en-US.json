@@ -1,0 +1,9 @@
+{
+  "menu": {
+    "hellos": "Hellos",
+
+    "contactForm": "Contact Form",
+    "employees": "Employees",
+    "todos": "TODOs"
+  }
+}

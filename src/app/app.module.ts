@@ -15,8 +15,15 @@ import { EmojiAdderModule } from 'capco-shared';
 
 import localeSk from '@angular/common/locales/sk';
 import { registerLocaleData } from '@angular/common';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 registerLocaleData(localeSk);
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -25,13 +32,22 @@ registerLocaleData(localeSk);
     HelloListComponent,
     AlertComponent,
     AlertListComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     EmojiAdderModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'sk',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     AlertService,
