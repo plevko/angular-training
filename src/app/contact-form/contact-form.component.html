@@ -1,1 +1,63 @@
-Contact form
+<h2>Capco contact form</h2>
+<form>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Ex. Michal" value="Peter" />
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Surname</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea
+        matInput
+        placeholder="Ex. It makes me feel..."
+        [cdkTextareaAutosize]="true"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <h3>Address</h3>
+  <div class="mb-3">
+    <mat-form-field class="me-3">
+      <mat-label>Street</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>House number</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-form-field class="me-3">
+      <mat-label>City</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="mb-3">
+    <mat-checkbox>I agree with conditions...</mat-checkbox>
+  </div>
+
+  <button type="button" class="btn btn-primary">Send</button>
+</form>
