@@ -66,7 +66,9 @@
               "outputHashing": "all"
             },
             "sk": {
-              "localize": ["sk"]
+              "localize": [
+                "sk"
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -118,6 +120,37 @@
             ],
             "scripts": []
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular:serve:production"
+            }
+          }
         }
       }
     },
@@ -148,6 +181,39 @@
             "main": "projects/capco-shared/src/test.ts",
             "tsConfig": "projects/capco-shared/tsconfig.spec.json",
             "karmaConfig": "projects/capco-shared/karma.conf.js"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "capco-shared:serve",
+            "configFile": "projects/capco-shared/cypress.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "capco-shared:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/capco-shared/cypress.json"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "capco-shared:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "capco-shared:serve:production"
+            }
           }
         }
       }

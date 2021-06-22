@@ -1,0 +1,9 @@
+{
+  "integrationFolder": "projects/capco-shared/cypress/integration",
+  "supportFile": "projects/capco-shared/cypress/support/index.ts",
+  "videosFolder": "projects/capco-shared/cypress/videos",
+  "screenshotsFolder": "projects/capco-shared/cypress/screenshots",
+  "pluginsFile": "projects/capco-shared/cypress/plugins/index.js",
+  "fixturesFolder": "projects/capco-shared/cypress/fixtures",
+  "baseUrl": "http://localhost:4200"
+}
